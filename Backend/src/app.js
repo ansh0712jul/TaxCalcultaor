@@ -1,6 +1,6 @@
 import express from  "express";
 import cors from "cors";
-
+import cookieParser from "cookie-parser";
 import morgan from "morgan"
 
 const app = express();
@@ -16,16 +16,18 @@ app.use(express.urlencoded({
     extended:true
 }));
 app.use(express.static("public"));
-
+app.use(cookieParser());
 
 
 // import routes
+import userRoutes from "./routes/user.routes.js"
 
 
 
 
 
 // routes declaration 
+app.use("/user",userRoutes);
 
 
 
